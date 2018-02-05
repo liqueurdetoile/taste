@@ -1,0 +1,215 @@
+body {
+  font-family: Arial, 'Sans-serif';
+}
+
+li.test {
+  padding : 0.2em 0
+}
+
+h1, h2, h3 {
+  cursor: pointer
+}
+
+h1:hover, h2:hover, h3:hover {
+  text-decoration: underline;
+}
+
+.ok {
+  color: darkgreen
+}
+
+.ko {
+  color: red
+}
+
+.ok::after, .ko.toggled::after {
+  content: '[+]';
+  margin-left: 0.5em;
+}
+
+.ko::after, .ok.toggled::after {
+  content: '[-]';
+  margin-left: 0.5em
+}
+
+.ok+div {
+  display: none
+}
+
+.ok.toggled+div {
+  display: block
+}
+
+.ko+div {
+  display: block
+}
+
+.ko.toggled+div {
+  display: none
+}
+
+.toggle-details {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: #000;
+}
+
+.details {  
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow : auto;
+  line-height: 1;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #482E09;
+  color: #fff
+}
+
+.details table {
+  text-align: left;
+  margin-bottom: 1em;
+  color: #fff
+}
+
+.details tr th:first-child,
+.details tr td:first-child {
+  text-align: left
+}
+
+.details th,
+.details td {
+  padding : 0.5em 1em;
+  vertical-align:top;
+  border-bottom : 1px dotted #ff6c3c
+}
+
+tr.failed {
+  font-weight: bold;
+  color: #ffce13
+}
+
+div.item {
+  margin-right: 4em;
+}
+
+div.title {
+  font-weight: bold;
+  color: #FF6C3C
+}
+
+div.item div {
+  margin-bottom : 0.5em
+}
+
+div.item button {
+  border: 1px solid #ff6c3c;
+  color: #ff6c3c;
+  background: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding : 0.8em 1em;
+  margin-bottom : 0.5em;
+  outline: none;
+  width: 12em;
+}
+
+.details pre {
+  margin : 0;
+}
+
+li.failed {
+  font-weight: bold;
+}
+
+span.passed {
+  color: green;
+}
+
+span.failed {
+  color: red;
+}
+
+li.hidden {
+  display: none;
+}
+
+/* TRACE */
+div.trace-container {
+  width: 100%;
+  background-color: #482E09;
+  color: #fff;
+  line-height: 1;
+  padding: 1em;
+  margin-bottom: 1em;  
+  box-sizing: border-box;
+}
+
+div.commands input {
+  margin : 1em;
+  padding : 0.5em;
+  background: none;
+  outline: none;
+  color: #fff;
+  border : 1px solid #fff;
+}
+
+button.command {
+  margin : 1em;
+  padding : 0.5em;
+  background: none;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  border : 1px solid #fff;
+  font-weight: bold;
+}
+
+button.command.active {
+  color: #482E09;
+  background-color: #fff;
+}
+
+div.trace-line {
+  margin: 0.5em 0;  
+  display: flex;  
+  align-items: center;
+  font-family: monospace;
+}
+
+div.time {
+  width: 60px;  
+  padding: 0.5em;
+}
+
+div.item-trace-container {
+  padding: 0.5em;
+  flex: auto;
+}
+
+div.item-trace {
+  background: rgba(255,255,255,0.03);
+  border: 1px dotted #ddd;    
+}
+
+.highlight div.item-trace {
+  border-color: #ff6c3c;
+  background: #634e2e;
+}
+
+div.item-trace > div {
+  padding: 0.5em;
+}
+
+div.params {
+  display: flex;
+}
+
+span.item-trace-title {
+  font-weight: bold;
+  color: #ff6c3c;
+  margin-right: 2em
+}

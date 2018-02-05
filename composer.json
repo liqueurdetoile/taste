@@ -1,0 +1,17 @@
+{
+    "name": "liqueurdetoile/tasteliquor",
+    "description": "Integrated PHP unit test and benchmarking",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Liqueur de Toile",
+            "email": "contact@liqueurdetoile.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"LiquorTaste\\": "src/"}
+    }
+}
