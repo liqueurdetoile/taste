@@ -1,6 +1,7 @@
 {
     "name": "liqueurdetoile/tasteliquor",
     "description": "Integrated PHP unit test and benchmarking",
+    "version": "0.0.1",
     "type": "library",
     "license": "MIT",
     "authors": [
