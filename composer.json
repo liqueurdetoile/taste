@@ -1,5 +1,5 @@
 {
-    "name": "liqueurdetoile/tasteliquor",
+    "name": "liqueurdetoile/taste",
     "description": "Integrated PHP unit test and benchmarking",
     "version": "0.0.1",
     "type": "library",
