@@ -42,7 +42,7 @@ This tool is still in dev status and will have some bugs that [can be reported h
 - [Todo List](#todo-list)
   
 ## Installation
-Install with composer : `composer require liqueurdetoile/tasteliquor`
+Install with composer : `composer require liqueurdetoile/taste`
 
 As this time, there is some little extra setup to make it work :
 1. Creates a main folder to home your tests and benchmarks scripts (/tastes for instance). **This folder have to be accessible through your browser for GUI use**
