@@ -1,6 +1,6 @@
 <p align="center"><a href="https://liqueurdetoile.com" target=_blank"><img src="https://raw.githubusercontent.com/liqueurdetoile/tasteliquor/master/docs/assets/logo_lqdt.png" alt="Liqueur de Toile"></a></p>
 
-# Taste of Liquor
+# Taste a.k.a. Taste of Liquor
 This PHP library is a complete environment for testing, debugging and benchmarking a PHP app. It provides a GUI and is based on ajax to perform operations and display results.
 Unlike many others PHP unit test (like PHP-Unit for instance), Taste of Liquor is not going **from code to test logic, but from test logic applied to callables**. Therefore, you can easily achieve testing end benchmarking many datasets on many callables.
 
