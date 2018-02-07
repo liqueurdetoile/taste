@@ -33,7 +33,11 @@ class Session {
       $taste_instance = new $classname($this->cachefolder, $this->relativecachefolder);
       $funcs = $this->extract_tests($nativefuncs, $taste_instance);
       if(method_exists($taste_instance, 'before')) $taste_instance->before();
-      foreach($funcs as $func) call_user_func(array($taste_instance, $func));
+      foreach($funcs as $func) {
+        if(method_exists($taste_instance, 'beforeTest')) $taste_instance->beforeTest();
+        call_user_func(array($taste_instance, $func));
+        if(method_exists($taste_instance, 'afterTest')) $taste_instance->afterTest();
+      }
       if(method_exists($taste_instance, 'after')) $taste_instance->after();
       http_response_code(200);
       header('Content-type:Application/json');

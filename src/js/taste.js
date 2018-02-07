@@ -415,7 +415,7 @@ function start(ev) {
       tests[name].pending = false;
       tests[name].done = true;
       updateDashboard();
-      $('.dot.status.' + name).removeClass('pending').addClass('done');
+      $('.dot.status.' + name).removeClass('pending').removeClass('error').addClass('done');
     },
     
     error: function(jqXHR) {
@@ -424,7 +424,7 @@ function start(ev) {
       $(ev.target).parents('.content').append(res);
       tests[name].pending = false;
       tests[name].error = true;
-      $('.dot.status.' + name).removeClass('pending').addClass('error');
+      $('.dot.status.' + name).removeClass('pending').removeClass('done').addClass('error');
       updateDashboard();
     },
     

@@ -40,8 +40,13 @@ abstract class Run {
     }
   }
 
-  function addInstance($name, $instance) {
+  function addInstance(string $name, callable $instance) {
     $this->instances[$name] = $instance;
+    return $this;
+  }
+  
+  function removeInstance(string $name) {
+    unset($this->instances[$name]);
     return $this;
   }
 }

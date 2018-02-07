@@ -20,23 +20,17 @@ class Test {
     $this->_instances = $run->instances;
   }
 
-  function pr($var) {
-    $this->_run->report .= '<pre>';
-    $this->_run->report .= print_r($var, true);
-    $this->_run->report .= '</pre>';
-  }
-
-  function addInstance($name, $instance) {
+  function addInstance(string $name, callable $instance) {
     $this->_instances[$name] = $instance;
     return $this;
   }
   
-  function removeInstance($name) {
+  function removeInstance(string $name) {
     unset($this->_instances[$name]);
     return $this;
   }
 
-  function name($name) {
+  function name(string $name) {
     $this->name = $name;
     return $this;
   }
@@ -100,7 +94,7 @@ class Test {
     foreach($this->_results as $samples) {
       foreach($samples as $sample) $this->result->expected('', true, $sample['result']->passed);
     }
-    $this->result->evaluate();
+    $this->result->evaluate($rule);
     $this->report($this->result);
     return $this;
   }
