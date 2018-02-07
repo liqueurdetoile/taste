@@ -47,7 +47,7 @@ class Examples extends Run {
       ->removeInstance('powB')
       ->removeInstance('powC')
       ->addInstance('Foo', array(new Foo(), 'bar'))
-      ->name('Foo powaa')
+      //->name('Foo powaa')
       ->sample('Hello', 'HELLO')
       ->removeInstance('Foo')
       ->addInstance('StaticFoo', array('Foo', 'foobar'))

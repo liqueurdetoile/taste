@@ -14,8 +14,9 @@ class Test {
   public $samples = 0;
   public $samplespassed = 0;
 
-  function __construct(Run &$run) {
+  function __construct($name, Run &$run) {
     $this->_run = $run;
+    $this->name = $name;
     $this->_instances = $run->instances;
   }
 
