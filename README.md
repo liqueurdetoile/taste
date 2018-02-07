@@ -374,3 +374,4 @@ There is many things to do still but taste of Liquor is already fully functionna
 - [ ] Add view source on reports
 - [ ] Add timeline format to test report
 - [ ] Add memory deltas to test report
+- [ ] Add travis support
