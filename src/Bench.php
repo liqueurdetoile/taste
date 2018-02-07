@@ -144,10 +144,10 @@ class Test {
     
     $this->_run->report .= '</div>';
     
-    $this->_run->results['run']['tests'] += $this->total;
-    $this->_run->results['run']['testspassed'] += $this->result->passed ? 1 : 0;
-    $this->_run->results['run']['samples'] += $this->samples;
-    $this->_run->results['run']['samplespassed'] += $this->samplespassed;
+    $this->_run->tests['total'] += $this->total;
+    $this->_run->tests['passed'] += $this->result->passed ? 1 : 0;
+    $this->_run->tests['samples'] += $this->samples;
+    $this->_run->tests['samplespassed'] += $this->samplespassed;
   }
 
   function parseArgs($args) {

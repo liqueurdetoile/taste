@@ -13,6 +13,6 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "psr-4": {"LiquorTaste\\": "src/"}
+        "psr-4": {"Taste\\": "src/"}
     }
 }
