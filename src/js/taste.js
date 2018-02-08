@@ -420,6 +420,8 @@ function start(ev) {
     
     error: function(jqXHR) {
       var res = document.createElement('div');
+      
+      $('.content.test-' + name).find('.result-container').remove();
       $(res).addClass('result-container').html(jqXHR.responseText);
       $(ev.target).parents('.content').append(res);
       tests[name].pending = false;
