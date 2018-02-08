@@ -186,7 +186,7 @@ function showTrace(ev) {
 }
 
 function updateDashboardTests() {
-  
+  console.log(tests);
 }
 
 function updateDashboardBenchmarks() {
@@ -198,11 +198,13 @@ function updateDashboard() {
   var labels = ['waiting', 'pending', 'done', 'error'];
   
   // Status
-  $.each(tests, function(name, run) {    
+  if(Object.keys(tests).length) {
     data[0].values = [0,0,0,0,0];
     data[2].values = [0,0,0,0,0];
     data[3].values = [0,0,0,0,0];
     data[5].values = [0,0,0,0,0];
+  }
+  $.each(tests, function(name, run) {
     $.each(labels, function(index, label) {
       if(run[label]) {
         data[0].values[index]++;
@@ -213,9 +215,11 @@ function updateDashboard() {
     });
   });
   
-  $.each(benchmarks, function(name, run) {
+  if(Object.keys(benchmarks).length) {
     data[2].values = [0,0,0,0,0];
     data[4].values = [0,0,0,0,0];
+  }
+  $.each(benchmarks, function(name, run) {    
     $.each(labels, function(index, label) {
       if(run[label]) {
         data[1].values[index]++;
