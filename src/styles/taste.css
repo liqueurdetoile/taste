@@ -227,15 +227,19 @@ div.modal {
   top: 2.5%;
   left: 2.5%;
   width: 95%;
-  height: 95%;
-  padding : 1em;
+  height: 95%;  
   background-color: #482e09;
   box-shadow: 0 0 30px 10px #000;
+  overflow: auto;
 }
 
 .modal-title {
+  box-sizing: border-box;
   border-bottom: 1px dotted #fff;
   position: fixed;
+  background-color: #482e09;
+  width: 95%;
+  padding : 0.5em;
 }
 
 .modal-title h1 {
@@ -256,15 +260,10 @@ div.modal {
   vertical-align: middle;
 }
 
-.modal-container {
-  overflow: auto;
-  margin-top: 5em;
-}
-
-/* TRACE */
-div.trace-container {
-  width: 100%;
+.modal-container {  
+  margin-top: 6em;
   background-color: #482E09;
+  width: 100%;  
   color: #fff;
   line-height: 1;
   padding: 1em;
@@ -272,6 +271,7 @@ div.trace-container {
   box-sizing: border-box;
 }
 
+/* TRACE */
 div.commands input {
   margin : 1em;
   padding : 0.5em;
