@@ -5,6 +5,10 @@ body {
   padding-bottom: 2em;
 }
 
+pre {
+  text-align: left;
+}
+
 .header {
   width : 100%
 }

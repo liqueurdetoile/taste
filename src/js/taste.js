@@ -401,11 +401,11 @@ function start(ev) {
         $.extend(true, tests[name], data);
         if(tests[name].results.run.tests === tests[name].results.run.testspassed) {
           tests[name].passed = true;
-          $('.dot.result.' + name).removeClass('pending').addClass('passed');
+          $('.dot.result.' + name).removeClass('pending').removeClass('failed').addClass('passed');
         }
         else {
           tests[name].passed = false;
-          $('.dot.result.' + name).removeClass('pending').addClass('failed');
+          $('.dot.result.' + name).removeClass('pending').removeClass('passed').addClass('failed');
         }
         testReport(name, data.report);
       }
