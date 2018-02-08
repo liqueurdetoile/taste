@@ -423,7 +423,7 @@ function start(ev) {
       
       $('.content.test-' + name).find('.result-container').remove();
       $(res).addClass('result-container').html(jqXHR.responseText);
-      $(ev.target).parents('.content').append(res);
+      $('.content.test-' + name).append(res);
       tests[name].pending = false;
       tests[name].error = true;
       $('.dot.status.' + name).removeClass('pending').removeClass('done').addClass('error');
