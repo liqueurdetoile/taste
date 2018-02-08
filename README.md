@@ -337,6 +337,7 @@ With the second approach, the result of the evaluations **inside** the sample wi
 
 ## GUI
 Taste of Liquor is not available on CLI (maybe in the future) but provides and ajax-based GUI.
+Simply acces the GUI through your dev server (LAMP/WAMP or online) by heading towards the main folder (alternatively, you can set an alias or a virtual host for instance that points directly to this folder)
 
 ### Header and tabs
 The header of the GUI contains a wonderful log... hum, brumm, global buttons to run tests, benchmarks or all at once.
