@@ -186,7 +186,7 @@ function showTrace(ev) {
 }
 
 function updateDashboardTests() {
-  console.log(tests);
+  
 }
 
 function updateDashboardBenchmarks() {
@@ -358,8 +358,7 @@ function drawDashboard() {
 function testReport(name, file) {  
   var traces;
   
-  var res = document.createElement('div');
-  $('.content.test-' + name).find('.result-container').remove();
+  var res = document.createElement('div');  
   $('.content.test-' + name).append(res);  
   $(res).addClass('result-container').load(file, function() {
     // Toggle details button
@@ -393,10 +392,16 @@ function start(ev) {
     url: location.href + `?action=${action}&name=${name}&script=${script}`,
     
     beforeSend : function() {
-      $(ev.target).hide();
+      $('.content.test-' + name).find('.result-container').remove();
       tests[name].waiting = false;
-      $('.dot.status.' + name).removeClass('waiting').addClass('pending');
       tests[name].pending = true;
+      tests[name].done = false;
+      tests[name].error = false;
+      $('.dot.status.' + name)
+        .removeClass('waiting')
+        .removeClass('done')
+        .removeClass('error')
+        .addClass('pending');
       updateDashboard();
     },
     
@@ -417,6 +422,7 @@ function start(ev) {
 
       }
       tests[name].pending = false;
+      tests[name].error = false;
       tests[name].done = true;
       updateDashboard();
       $('.dot.status.' + name).removeClass('pending').removeClass('error').addClass('done');
@@ -429,6 +435,7 @@ function start(ev) {
       $(res).addClass('result-container').html(jqXHR.responseText);
       $('.content.test-' + name).append(res);
       tests[name].pending = false;
+      tests[name].done = false;
       tests[name].error = true;
       $('.dot.status.' + name).removeClass('pending').removeClass('done').addClass('error');
       updateDashboard();
