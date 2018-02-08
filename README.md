@@ -1,4 +1,4 @@
-<p align="center"><a href="https://liqueurdetoile.com" target=_blank"><img src="https://raw.githubusercontent.com/liqueurdetoile/tasteliquor/master/docs/assets/logo_lqdt.png" alt="Liqueur de Toile"></a></p>
+<p align="center"><a href="https://liqueurdetoile.com" target=_blank"><img src="http://hosting.liqueurdetoile.com/logo_lqdt.png" alt="Liqueur de Toile"></a></p>
 
 # Taste a.k.a. Taste of Liquor
 This PHP library is a complete environment for testing, debugging and benchmarking a PHP app. It provides a GUI and is based on ajax to perform operations and display results.
@@ -10,7 +10,7 @@ You must remember that this kind of tool is for **development only** ! It obviou
 ## Bugs and contributions
 This tool is still in dev status and will have some bugs that [can be reported here](https://github.com/liqueurdetoile/taste/issues). If you want to contribute, just fork the project and submit a pull request. A [todo list](#todo-list) is maintained.
 
-![dashboard](https://raw.githubusercontent.com/liqueurdetoile/tasteliquor/master/docs/assets/liquortaste_screenshot3.png)
+![dashboard](http://hosting.liqueurdetoile.com/liquortaste_screenshot3.png)
 
 # Table of contents
 - [Installation](#installation)
@@ -344,15 +344,15 @@ For each run that is detected, a specific tab is created. The first rounded colo
 Clicking on tab will lead you to its report.
 
 ### Dashboard
-![dashboard](https://raw.githubusercontent.com/liqueurdetoile/tasteliquor/master/docs/assets/liquortaste_screenshot1.png)
+![dashboard](http://hosting.liqueurdetoile.com/liquortaste_screenshot1.png)
 The dashboard presents the status of the tests and benchmarks detected by Taste of Liquor. It will be imporoved in next version.
 
 ### Test report
-![Test report](https://raw.githubusercontent.com/liqueurdetoile/tasteliquor/master/docs/assets/liquortaste_screenshot2.png)
+![Test report](http://hosting.liqueurdetoile.com/liquortaste_screenshot2.png)
 The report screen displays all run results. Passed results are hidden by default but can be toggled with the `show details` button. You can use the `run test` to start (or start again) only this run.
 
 ### Test report details
-![Report Details](https://raw.githubusercontent.com/liqueurdetoile/tasteliquor/master/docs/assets/liquortaste_screenshot3.png)
+![Report Details](http://hosting.liqueurdetoile.com/liquortaste_screenshot3.png)
 This view give access to each sample details inside a test :
 * Arguments type and value
 * Testing Instance(s) used by the sample
@@ -362,7 +362,7 @@ This view give access to each sample details inside a test :
 You can also access the full trace with _ad hoc_ button
 
 ### Test report trace
-![Trace](https://raw.githubusercontent.com/liqueurdetoile/tasteliquor/master/docs/assets/liquortaste_screenshot4.png)
+![Trace](http://hosting.liqueurdetoile.com/liquortaste_screenshot4.png)
 This view shows up the full trace of a sample for a given instance. OYou can highlight or filter rows given a string or use the filter buttons. `USER DEFINED` will toggle user-defined functions display and `PHP DEFINED` will toggle built-in functions display.
 
 ## Todo List
