@@ -167,7 +167,7 @@ class Test {
         $ret .= "<td><pre>{$res['expected']}</pre></td>";
         $ret .= "<td><pre>{$res['returned']}</pre></td>";
         $ret .= "<td><pre>{$res['strict']}</pre></td>";
-        $ret .= "<td class=\"" . ($result->passed ? 'passed' : 'failed') . "\"><pre>{$res['passed']}</pre></td>";
+        $ret .= "<td class=\"" . ($res['passed'] === 'passed' ? 'passed' : 'failed') . "\"><pre>{$res['passed']}</pre></td>";
       $ret .= '</tr>';
     }
     $ret .= '</table>';
