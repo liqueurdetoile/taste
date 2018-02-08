@@ -375,4 +375,5 @@ There is many things to do still but taste of Liquor is already fully functionna
 - [ ] Add view source on reports
 - [ ] Add timeline format to test report
 - [ ] Add memory deltas to test report
+- [ ] Refactory javascript (I did a mess up from vanilla, jquery on a straight to goal way)
 - [ ] Add travis support
