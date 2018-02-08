@@ -225,7 +225,7 @@ class MyFirstTestRun extends Run {
 ```
 It simply means to provide 1 as first parameter,  2 as second parameter and to expect that result would be 3 (our testing instance returns $a + $b).
 
-The call to method `evaluate` tells Taste of Liquor that the test is over and the resukt of the test should be computed.
+The call to method `evaluate` tells Taste of Liquor that the test is over and the result of the test should be evaluated.
 
 #### Test evaluation rule
 We said before that all samples must passed for whole test to pass. It is the default behaviour but you can be a more tricky by providing a rule.
@@ -235,7 +235,7 @@ Taste\Test::evaluate(string $rule = null)
 If `$rule` is null, the rule applied by evaluate is : `'$1 && $2 && [...] $n'` where i is the sample index (**starting from 1**).
 You can define any boolean logic to mix the results of your samples. For instance : `'$1 && !$2 && ($3 || $4)'` will be totally valid with 4 or more samples.
 
-The main use of this rule is to set aside some samples that you want to run but not take in account for test result.
+The main use of this rule is to set aside some samples that you want to have but not take in account for test result.
 
 #### Example of excluding sample from test evaluation
 ```php
@@ -259,7 +259,7 @@ class MyFirstTestRun extends Run {
   }
 }
 ```
-This test will pass event if the second sample will obviously fail. The informations about the second sample will be available in [test report](#test-report).
+This test will pass even if the second sample will obviously fail. The informations about the second sample will be available in [test report](#test-report).
 
 ### Result class powers Taste of Liquor
 Behind each test and each sample, there is an instance of `Taste\Result` that multiplies testing possibility. You can instantiate as many Result as you want but do not forget to feed back the sample result :wink:
