@@ -14,7 +14,17 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+      "php": "^7"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "wimg/php-compatibility": "*"
+    },
+    "scripts": {
+        "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wimg/php-compatibility",
+        "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wimg/php-compatibility"
+    },
     "autoload": {
         "psr-4": {"Taste\\": "src/"}
     }
