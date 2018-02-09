@@ -1,13 +1,16 @@
 {
     "name": "liqueurdetoile/taste",
-    "description": "Integrated PHP unit test and benchmarking",
+    "description": "Integrated PHP GUI for debugging, unit test and benchmarking",
     "version": "0.0.1",
     "type": "library",
+    "homepage": "https://github.com/liqueurdetoile/taste",
+    "keywords": ["GUI", "Debug", "Debugging", "Unit Test", "Benchmark", "Benchmarking"],
     "license": "MIT",
     "authors": [
         {
             "name": "Liqueur de Toile",
-            "email": "contact@liqueurdetoile.com"
+            "email": "contact@liqueurdetoile.com",
+            "homepage": "https://liqueurdetoile.com"
         }
     ],
     "minimum-stability": "dev",
