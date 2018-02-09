@@ -1,3 +1,8 @@
+[![License](https://poser.pugx.org/liqueurdetoile/taste/license?format=flat-square)](https://packagist.org/packages/liqueurdetoile/taste)
+[![Latest Stable Version](https://poser.pugx.org/liqueurdetoile/taste/v/stable?format=flat-square)](https://packagist.org/packages/liqueurdetoile/taste)
+[![Latest Unstable Version](https://poser.pugx.org/liqueurdetoile/taste/v/unstable?format=flat-square)](https://packagist.org/packages/liqueurdetoile/taste)
+
+
 <p align="center"><a href="https://liqueurdetoile.com" target=_blank"><img src="http://hosting.liqueurdetoile.com/logo_lqdt.png" alt="Liqueur de Toile"></a></p>
 
 # Taste a.k.a. Taste of Liquor
