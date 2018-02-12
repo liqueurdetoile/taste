@@ -20,13 +20,25 @@ class Test {
     $this->_instances = $run->instances;
   }
 
-  function addInstance(string $name, $instance, $params = null) : self {
-    if(is_array($instance) && class_exists($instance[0])) {
-        if($instance[1] == '__construct' || is_null($instance[1])) {
-            $this->_instances[$name] = new $instance($params);
-        }
+  function addInstance(string $name, $instance) {
+    if(!is_array($instance) && is_string($instance) && class_exists($instance)) {
+        if(func_num_args() < 3) $this->_instances[$name] = new $instance();
         else {
-            $this->_instances[$name] = [new $instance[0]($params), $instance[1]];
+            $args = func_get_args();
+            array_shift($args);            
+            array_shift($args);
+            $reflection = new \ReflectionClass($instance);
+            $this->_instances[$name] = $reflection->newInstanceArgs($args);
+        }
+    }
+    else if(is_array($instance) && class_exists($instance[0])) {
+        if(func_num_args() < 3) $this->_instances[$name] = [new $instance[0](), $instance[1]];
+        else {
+            $args = func_get_args();
+            array_shift($args);            
+            array_shift($args);
+            $reflection = new \ReflectionClass($instance[0]);
+            $this->_instances[$name] = [$reflection->newInstanceArgs($args), $instance[1]];
         }
     }
     elseif (is_callable($instance)) {
@@ -38,7 +50,7 @@ class Test {
     return $this;
   }
   
-  function removeInstance(string $name) : self {
+  function removeInstance(string $name) {
     unset($this->_instances[$name]);
     return $this;
   }
@@ -48,7 +60,7 @@ class Test {
     return $this;
   }
   
-  function sample($input, $output, bool $strict = true, string $name = null) : self {
+  function sample($input, $output, bool $strict = true, string $name = null) {
     $sampleIndex = count($this->_results);
 
     foreach($this->_instances as $instanceName => $instance) {
@@ -105,7 +117,7 @@ class Test {
     return $this;
   }
 
-  function evaluate($rule = null) : self {
+  function evaluate($rule = null) {
     $this->result = new Result($this->name);
     foreach($this->_results as $samples) {
       foreach($samples as $sample) $this->result->expected('', true, $sample['result']->passed);
@@ -161,7 +173,7 @@ class Test {
     $this->_run->results['run']['samplespassed'] += $this->samplespassed;
   }
 
-  function parseArgs($args) : string {
+  function parseArgs($args) {
     $ret = '<table class="args-details">';
     $ret .= '<tr><th></th><th>Type</th><th>Value</th></tr>';
     $n = 1;
@@ -172,7 +184,7 @@ class Test {
     return $ret;
   }
 
-  function parseEvaluations($result) : string {
+  function parseEvaluations($result) {
     $ret = '<table class="evaluations-details">';
     $ret .= '<tr><th></th><th>Description</th><th>Expected</th><th>Returned</th><th>Strict</th><th></th></tr>';
     foreach($result->items as $itemName => $res) {

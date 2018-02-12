@@ -40,17 +40,29 @@ abstract class Run {
     }
   }
 
-  function addInstance(string $name, $instance, $params = null) : self {
-    if (is_callable($instance)) {
-        $this->_instances[$name] = $instance;
-    }
-    elseif(is_array($instance) && class_exists($instance[0])) {
-        if($instance[1] == '__construct' || is_null($instance[1])) {
-            $this->_instances[$name] = new $instance($params);
-        }
+  function addInstance(string $name, $instance) {
+    if(!is_array($instance) && is_string($instance) && class_exists($instance)) {
+        if(func_num_args() < 3) $this->_instances[$name] = new $instance();
         else {
-            $this->_instances[$name] = [new $instance($params), $instance[1]];
+            $args = func_get_args();
+            array_shift($args);            
+            array_shift($args);
+            $reflection = new \ReflectionClass($instance);
+            $this->_instances[$name] = $reflection->newInstanceArgs($args);
         }
+    }
+    else if(is_array($instance) && class_exists($instance[0])) {
+        if(func_num_args() < 3) $this->_instances[$name] = [new $instance[0](), $instance[1]];
+        else {
+            $args = func_get_args();
+            array_shift($args);            
+            array_shift($args);
+            $reflection = new \ReflectionClass($instance[0]);
+            $this->_instances[$name] = [$reflection->newInstanceArgs($args), $instance[1]];
+        }
+    }
+    elseif (is_callable($instance)) {
+        $this->_instances[$name] = $instance;
     }
     else {
         throw new \Exception('INSTANCE_NOT_CALLABLE');
