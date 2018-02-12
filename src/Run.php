@@ -40,8 +40,21 @@ abstract class Run {
     }
   }
 
-  function addInstance(string $name, callable $instance) {
-    $this->instances[$name] = $instance;
+  function addInstance(string $name, $instance, $params = null) : self {
+    if (is_callable($instance)) {
+        $this->_instances[$name] = $instance;
+    }
+    elseif(is_array($instance) && class_exists($instance[0])) {
+        if($instance[1] == '__construct' || is_null($instance[1])) {
+            $this->_instances[$name] = new $instance($params);
+        }
+        else {
+            $this->_instances[$name] = [new $instance($params), $instance[1]];
+        }
+    }
+    else {
+        throw new \Exception('INSTANCE_NOT_CALLABLE');
+    }    
     return $this;
   }
   

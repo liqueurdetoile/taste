@@ -20,12 +20,25 @@ class Test {
     $this->_instances = $run->instances;
   }
 
-  function addInstance(string $name, callable $instance) {
-    $this->_instances[$name] = $instance;
+  function addInstance(string $name, $instance, $params = null) : self {
+    if(is_array($instance) && class_exists($instance[0])) {
+        if($instance[1] == '__construct' || is_null($instance[1])) {
+            $this->_instances[$name] = new $instance($params);
+        }
+        else {
+            $this->_instances[$name] = [new $instance[0]($params), $instance[1]];
+        }
+    }
+    elseif (is_callable($instance)) {
+        $this->_instances[$name] = $instance;
+    }
+    else {
+        throw new \Exception('INSTANCE_NOT_CALLABLE');
+    }    
     return $this;
   }
   
-  function removeInstance(string $name) {
+  function removeInstance(string $name) : self {
     unset($this->_instances[$name]);
     return $this;
   }
@@ -34,8 +47,8 @@ class Test {
     $this->name = $name;
     return $this;
   }
-
-  function sample($input, $output, $strict = true, $name = null) {
+  
+  function sample($input, $output, bool $strict = true, string $name = null) : self {
     $sampleIndex = count($this->_results);
 
     foreach($this->_instances as $instanceName => $instance) {
@@ -49,12 +62,15 @@ class Test {
       else $args = (array) $input;
 
       // Test runtime
-      if(function_exists('xdebug_start_trace')) $trace = true;
+      if(function_exists('xdebug_start_trace')) {
+          $trace = true;      
+          $tracefilename = $this->_run->name . '.' . uniqid();
+          $tracefile = $this->_run->tracefolder . DS . $tracefilename;
+      }
+      
       $start = microtime(true) * 1000;
-      $tracefilename = $this->_run->name . '.' . uniqid();
-      $tracefile = $this->_run->tracefolder . DS . $tracefilename;
       try {
-        if($trace) xdebug_start_trace($tracefile, 2);
+        if($trace) xdebug_start_trace($tracefile, 2);        
         $returned = call_user_func_array($instance, $args);
       }
       catch(Exception $e) {        
@@ -89,7 +105,7 @@ class Test {
     return $this;
   }
 
-  function evaluate($rule = null) {
+  function evaluate($rule = null) : self {
     $this->result = new Result($this->name);
     foreach($this->_results as $samples) {
       foreach($samples as $sample) $this->result->expected('', true, $sample['result']->passed);
@@ -145,7 +161,7 @@ class Test {
     $this->_run->results['run']['samplespassed'] += $this->samplespassed;
   }
 
-  function parseArgs($args) {
+  function parseArgs($args) : string {
     $ret = '<table class="args-details">';
     $ret .= '<tr><th></th><th>Type</th><th>Value</th></tr>';
     $n = 1;
@@ -156,7 +172,7 @@ class Test {
     return $ret;
   }
 
-  function parseEvaluations($result) {
+  function parseEvaluations($result) : string {
     $ret = '<table class="evaluations-details">';
     $ret .= '<tr><th></th><th>Description</th><th>Expected</th><th>Returned</th><th>Strict</th><th></th></tr>';
     foreach($result->items as $itemName => $res) {
