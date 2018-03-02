@@ -1,11 +1,11 @@
 {
     "name": "liqueurdetoile/taste",
-    "description": "Integrated PHP GUI for debugging, unit test and benchmarking",
-    "version": "0.0.1",
+    "description": "Integrated PHP Unit Tester CLI/with GUI for debugging, unit test and benchmarking",
+    "version": "1.0.0",
     "type": "library",
     "homepage": "https://github.com/liqueurdetoile/taste",
     "keywords": ["GUI", "Debug", "Debugging", "Unit Test", "Benchmark", "Benchmarking"],
-    "license": "MIT",
+    "license": "AGPL-3.0",
     "authors": [
         {
             "name": "Liqueur de Toile",
@@ -15,17 +15,32 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "php": "^5.3"
+        "php": ">=7.0",
+        "eloquent/composer-npm-bridge": "4",
+        "adbario/php-dot-notation": "2.x-dev",
+        "phpunit/php-code-coverage": "^6.0@dev"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "*",
-        "wimg/php-compatibility": "*"
+        "wimg/php-compatibility": "*",
+        "kint-php/kint": "dev-master"
     },
     "scripts": {
         "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wimg/php-compatibility",
-        "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wimg/php-compatibility"
+        "post-update-cmd" : [
+          "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wimg/php-compatibility"
+        ],
+        "docs" : "@php phpDocumentor.phar -d ./src -t ./docs"
     },
     "autoload": {
-        "psr-4": {"Taste\\": "src/"}
+        "psr-4": {"Taste\\": "src/php"}
+    },
+    "bin": ["bin/taste"],
+    "archive": {
+      "exclude": [
+        "/tastes",
+        "/docs",
+        "/.*"
+      ]
     }
 }
