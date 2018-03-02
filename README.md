@@ -1,4 +1,3 @@
-[![License](https://poser.pugx.org/liqueurdetoile/taste/license?format=flat-square)](https://packagist.org/packages/liqueurdetoile/taste)
 [![Latest Stable Version](https://poser.pugx.org/liqueurdetoile/taste/v/stable?format=flat-square)](https://packagist.org/packages/liqueurdetoile/taste)
 [![Latest Unstable Version](https://poser.pugx.org/liqueurdetoile/taste/v/unstable?format=flat-square)](https://packagist.org/packages/liqueurdetoile/taste)
 
