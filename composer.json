@@ -1,6 +1,6 @@
 {
     "name": "liqueurdetoile/taste",
-    "description": "Integrated PHP Unit Tester CLI/with GUI for debugging, unit test and benchmarking",
+    "description": "Integrated PHP Unit Tester CLI/GUI for debugging, unit test and benchmarking",
     "version": "1.0.0",
     "type": "library",
     "homepage": "https://github.com/liqueurdetoile/taste",
